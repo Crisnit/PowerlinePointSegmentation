@@ -170,7 +170,7 @@ def compute_class_weights(dataset, num_classes=4):
 
 
 if __name__ == "__main__":
-    ROOT = "/path/to/TS40K-FULL"
+    ROOT = "/root/mount/data"
     ds = TS40KSegDataset(ROOT, split="fit", n_points=4096, augment=True, use_fps=False)
     sample = ds[0]
     print("xyz shape:", sample["xyz"].shape)
