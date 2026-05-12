@@ -57,9 +57,9 @@ class LitRandLA(pl.LightningModule):
 
 
 def main():
-    ROOT = "/data/TS40K-FULL"          # ← измени под свой путь на сервере
-    BATCH_SIZE = 16                    # A100 позволяет
-    N_POINTS = 16384
+    ROOT = "/root/mount/data"          # ← измени под свой путь на сервере
+    BATCH_SIZE = 32                    # A100 позволяет
+    N_POINTS = 24576
     MAX_EPOCHS = 80
     LR = 1e-3
 
@@ -77,7 +77,7 @@ def main():
 
     model = LitRandLA(class_weights=class_weights, lr=LR)
 
-    checkpoint_cb = ModelCheckpoint(monitor="val_mIoU", mode="max", save_top_k=3,
+    checkpoint_cb = ModelCheckpoint(monitor="val_mIoU", mode="max", save_top_k=3, dirpath="checkpoints/",
                                     filename="randla-{epoch:02d}-{val_mIoU:.4f}")
     early_stop = EarlyStopping(monitor="val_mIoU", patience=15, mode="max")
 
