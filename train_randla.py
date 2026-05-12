@@ -57,9 +57,9 @@ class LitRandLA(pl.LightningModule):
 
 
 def main():
-    ROOT = "/root/mount/data"          # ← измени под свой путь на сервере
-    BATCH_SIZE = 32                    # A100 позволяет
-    N_POINTS = 24576
+    ROOT = "/home/artem/work/Dataset"          # ← измени под свой путь на сервере
+    BATCH_SIZE = 4                    # A100 позволяет
+    N_POINTS = 8192
     MAX_EPOCHS = 80
     LR = 1e-3
 
